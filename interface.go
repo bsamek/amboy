@@ -210,5 +210,12 @@ type AbortableRunner interface {
 	AbortAll(context.Context)
 }
 
-// QueueConstructor is a function passed by the client which makes a new queue for a QueueGroup.
-type QueueConstructor func(ctx context.Context) (Queue, error)
+// LocalQueueConstructor is a function passed by the client which makes a new local queue for a QueueGroup.
+type LocalQueueConstructor func(ctx context.Context) (Queue, error)
+
+// type RemoteQueueConstructorOptions struct {
+// collection string
+// }
+
+// RemoteQueueConstructor is a function passed by the client which makes a new remote queue for a QueueGroup.
+type RemoteQueueConstructor func(ctx context.Context, collection string) (Queue, error)
